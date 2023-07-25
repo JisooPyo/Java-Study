@@ -1,3 +1,4 @@
+// 개인정보 수집 유효기간
 package Test07.Test0726_P;
 
 import java.util.ArrayList;
