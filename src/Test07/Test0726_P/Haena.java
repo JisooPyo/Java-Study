@@ -4,11 +4,10 @@ import java.util.*;
 
 public class Haena {
 	public int[] solution(String today, String[] terms, String[] privacies) {
-		// 오늘 날짜 -> int 배열
-		int[] todayIntArr = new int[3];
-		todayIntArr[0] = Integer.parseInt(today.substring(0, 4));
-		todayIntArr[1] = Integer.parseInt(today.substring(5, 7));
-		todayIntArr[2] = Integer.parseInt(today.substring(8));
+		// 오늘 날짜 -> int
+		int todayYear = Integer.parseInt(today.substring(0, 4));
+		int todayMonth = Integer.parseInt(today.substring(5, 7));
+		int todayDay = Integer.parseInt(today.substring(8));
 
 		// {Key 약관 종류, Value 유효기간} Map
 		Map<Character, Integer> termsMap = new HashMap<Character, Integer>();
@@ -16,7 +15,7 @@ public class Haena {
 			termsMap.put(terms[i].charAt(0), Integer.parseInt(terms[i].substring(2)));
 		}
 
-		// 개인정보 수집일자 -> int 배열
+		// 개인정보 수집일자 -> int 배열 List
 		List<int[]> privaciesDates = new ArrayList<int[]>();
 		for (int i = 0; i < privacies.length; i++) {
 			int[] privaciesDate = new int[3];
@@ -35,11 +34,14 @@ public class Haena {
 		for (int i = 0; i < privaciesDates.size(); i++) {
 			// 유효 기간
 			int term = termsMap.get(termsKey[i]);
+			// 수집일자 월에 유효기간 더하기
 			privaciesDates.get(i)[1] += term;
+			// 월이 12보다 클 경우 연++ 후 월에 -12
 			while (privaciesDates.get(i)[1] > 12) {
 				privaciesDates.get(i)[0]++;
 				privaciesDates.get(i)[1] -= 12;
 			}
+			// 일이 1일일 경우 월-1 일=28 그 외 일--
 			if (privaciesDates.get(i)[2] == 1) {
 				privaciesDates.get(i)[1]--;
 				privaciesDates.get(i)[2] = 28;
@@ -48,16 +50,16 @@ public class Haena {
 			}
 		}
 
-		// 오늘 날짜보다 개인정보 유효 기간이 지난 개인정보 번호 리스트 -> int 배열 만들기
+		// 연>월>일 순으로 비교하여 오늘 날짜보다 개인정보 유효 기간이 지난 개인정보 번호 리스트 -> int 배열 만들기
 		List<Integer> answerList = new ArrayList<>();
 		for (int i = 0; i < privaciesDates.size(); i++) {
-			if (todayIntArr[0] > privaciesDates.get(i)[0]) {
+			if (todayYear > privaciesDates.get(i)[0]) {
 				answerList.add(i+1);
-			} else if (todayIntArr[0] == privaciesDates.get(i)[0]) {
-				if (todayIntArr[1] > privaciesDates.get(i)[1]) {
+			} else if (todayYear == privaciesDates.get(i)[0]) {
+				if (todayMonth > privaciesDates.get(i)[1]) {
 					answerList.add(i+1);
-				} else if (todayIntArr[1] == privaciesDates.get(i)[1]) {
-					if (todayIntArr[2] > privaciesDates.get(i)[2]) {
+				} else if (todayMonth == privaciesDates.get(i)[1]) {
+					if (todayDay > privaciesDates.get(i)[2]) {
 						answerList.add(i+1);
 					}
 				}
@@ -79,24 +81,24 @@ public class Haena {
 }
 
 /*
-테스트 1 〉	통과 (0.18ms, 74.3MB)
-테스트 2 〉	통과 (0.24ms, 75.7MB)
-테스트 3 〉	통과 (0.25ms, 78.3MB)
-테스트 4 〉	통과 (0.22ms, 86.7MB)
-테스트 5 〉	통과 (0.17ms, 76.2MB)
-테스트 6 〉	통과 (0.26ms, 73.5MB)
-테스트 7 〉	통과 (0.21ms, 72.3MB)
-테스트 8 〉	통과 (0.22ms, 76.7MB)
-테스트 9 〉	통과 (0.53ms, 78.8MB)
-테스트 10 〉	통과 (0.50ms, 76.2MB)
-테스트 11 〉	통과 (0.34ms, 66.9MB)
-테스트 12 〉	통과 (0.73ms, 77.7MB)
-테스트 13 〉	통과 (0.85ms, 79.2MB)
-테스트 14 〉	통과 (0.65ms, 69.4MB)
-테스트 15 〉	통과 (0.55ms, 76.1MB)
-테스트 16 〉	통과 (0.70ms, 79MB)
-테스트 17 〉	통과 (0.65ms, 69.8MB)
-테스트 18 〉	통과 (0.69ms, 75.9MB)
-테스트 19 〉	통과 (0.67ms, 76.3MB)
-테스트 20 〉	통과 (0.81ms, 71.4MB)
+테스트 1 〉	통과 (0.13ms, 75MB)
+테스트 2 〉	통과 (0.22ms, 74.7MB)
+테스트 3 〉	통과 (0.14ms, 71.7MB)
+테스트 4 〉	통과 (0.15ms, 75.5MB)
+테스트 5 〉	통과 (0.17ms, 73.2MB)
+테스트 6 〉	통과 (0.19ms, 73.6MB)
+테스트 7 〉	통과 (0.19ms, 77.5MB)
+테스트 8 〉	통과 (0.20ms, 78.3MB)
+테스트 9 〉	통과 (0.37ms, 71.6MB)
+테스트 10 〉	통과 (0.50ms, 76.6MB)
+테스트 11 〉	통과 (0.66ms, 74.9MB)
+테스트 12 〉	통과 (0.99ms, 71.6MB)
+테스트 13 〉	통과 (0.68ms, 71.8MB)
+테스트 14 〉	통과 (0.37ms, 76.3MB)
+테스트 15 〉	통과 (0.36ms, 76.6MB)
+테스트 16 〉	통과 (0.66ms, 72.3MB)
+테스트 17 〉	통과 (0.67ms, 73.8MB)
+테스트 18 〉	통과 (0.96ms, 75MB)
+테스트 19 〉	통과 (0.87ms, 76MB)
+테스트 20 〉	통과 (0.81ms, 74.3MB)
  */
