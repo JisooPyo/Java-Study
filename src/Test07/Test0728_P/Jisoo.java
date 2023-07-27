@@ -17,11 +17,8 @@ public class Jisoo {
 
 	public String[] solution(String[] strings, int n) {
 		// n번째 알파벳이 몇 개 있는지 기록해 놓을 int배열
-		// ex. c가 2개, x가 1개이면
-		// standard[2] = 2, standard[23] = 1;이 된다.
 		int[] standard = new int[26];
 		for (int i = 0; i < strings.length; i++) {
-			// strings[i].charAt(n) - 'a'
 			// n번째 알파벳을 int배열에 넣기 위한 식.
 			// 'a' : 0, 'b' : 1, 'c' : 2, ... 으로 들어간다.
 			standard[strings[i].charAt(n) - 'a']++;
@@ -31,7 +28,6 @@ public class Jisoo {
 		// 먼저 정렬해 준 뒤, 앞에서부터 꺼내 쓴다.
 		Arrays.sort(strings);
 
-		// 답을 넣을 배열
 		String[] answer = new String[strings.length];
 		// answer의 index
 		int answerIndex = 0;
