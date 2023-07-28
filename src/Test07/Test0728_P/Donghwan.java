@@ -27,7 +27,6 @@ public class Donghwan {
         Arrays.sort(chars); // sort를 이용해 뽑아온 알파벳을 사전순으로 정렬
         Arrays.sort(strings); // strings도 같이 사전순으로 정렬해줘야 중복되는 알파벳이 있을때 사전순으로 정렬되기 때문에 sort 진행
 
-        System.out.println(Arrays.toString(chars));
         for (int i =0; i<chars.length; i++) {
             for (int j = 0; j <strings.length; j++) {
                 String string = strings[j]; // j번째 strings를 뽑아와 string에 입력
