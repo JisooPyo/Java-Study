@@ -44,10 +44,10 @@ public class Donghwan {
     }
 }
 //        Troubleshooting
-//        1.같은 알파벳을 가지는 string이 있을 경우 answer에 값이 중복돼서 생기는 일이 발생 (contains을 통해 중복방지)
-//        2.원래 알파벳과 대조하는 조건문을 indexOf를 사용해 알파벳이 위치하는 인덱스 위치와 n값으로 넣어준 인덱스 위치가 동일 시 add를 해줬었는데
-//          예를 들어 대조하는 알파벳이 cbce이고 n이 2라고 가정했을때 c가 중복되어 있기 때문에 indaxOf는 앞에 c를 반환해 조건문이 false가 됐다. (charAt으로 변경)
-//        3.같은 알파벳을 가졌을 시에 사전 순으로 정렬해야된다는 제한 조건이 있어 if문 중간에 sort를 해줬지만 ArrayList는 sort가 불가능 (대조하기 전 미리 strings를 sort 해줌)
+//        1.같은 알파벳을 가지는 string이 있을 경우 answer에 값이 중복돼서 생기는 일이 발생 (contains을 통해 중복방지 해결)
+//        2.원래 알파벳과 대조하는 조건문을 indexOf를 사용해 알파벳이 위치하는 인덱스 위치와 n값으로 넣어준 인덱스 위치가 동일 시 add를 해줬었다.
+//          예를 들어 대조하는 알파벳이 cbce이고 n이 2라고 가정했을때 c가 중복되어 있기 때문에 indaxOf는 앞에 c를 반환해 조건문이 false가 됐다. (charAt으로 해결)
+//        3.같은 알파벳을 가졌을 시에 사전 순으로 정렬해야된다는 제한 조건이 있어 if문 중간에 sort를 해줬지만 ArrayList는 sort가 불가능 (대조하기 전 미리 strings를 sort 해줘 해결)
 
 
 //        테스트 1 〉	통과 (0.77ms, 74.7MB)
