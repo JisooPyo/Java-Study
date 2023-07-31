@@ -5,6 +5,7 @@ out/
 .idea
 test.iml
 Java_Study.iml
+.iml
 
 ### Eclipse ###
 .apt_generated
