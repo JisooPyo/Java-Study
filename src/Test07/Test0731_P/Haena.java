@@ -10,10 +10,8 @@ public class Haena {
 
 		// 2. 배열을 돌며 서로 다른 인덱스의 값를 더한 값을 set에 추가한다.
 		for (int i = 0; i < numbers.length; i++) {
-			for (int j = 0; j < numbers.length; j++) {
-				if (i != j) {
-					answerSet.add(numbers[i] + numbers[j]);
-				}
+			for (int j = i+1; j < numbers.length; j++) {
+				answerSet.add(numbers[i] + numbers[j]);
 			}
 		}
 
@@ -33,13 +31,13 @@ public class Haena {
 }
 
 /*
-테스트 1 〉	통과 (6.13ms, 72.8MB)
-테스트 2 〉	통과 (7.86ms, 74.8MB)
-테스트 3 〉	통과 (3.59ms, 74.9MB)
-테스트 4 〉	통과 (3.51ms, 77.2MB)
-테스트 5 〉	통과 (4.73ms, 72.1MB)
-테스트 6 〉	통과 (2.92ms, 85.4MB)
-테스트 7 〉	통과 (4.40ms, 65.6MB)
-테스트 8 〉	통과 (5.36ms, 74.2MB)
-테스트 9 〉	통과 (4.30ms, 80.4MB)
+테스트 1 〉	통과 (2.32ms, 77.4MB)
+테스트 2 〉	통과 (3.17ms, 76.1MB)
+테스트 3 〉	통과 (2.38ms, 76.2MB)
+테스트 4 〉	통과 (3.31ms, 77.3MB)
+테스트 5 〉	통과 (2.34ms, 74.1MB)
+테스트 6 〉	통과 (2.62ms, 75.6MB)
+테스트 7 〉	통과 (3.20ms, 79.1MB)
+테스트 8 〉	통과 (3.46ms, 72.4MB)
+테스트 9 〉	통과 (3.30ms, 77.5MB)
  */
