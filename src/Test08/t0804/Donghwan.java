@@ -12,16 +12,15 @@ public class Donghwan {
     }
 
     public int[] solution(String s) {
-        int[] arr = new int[s.length()];
+        int[] arr = new int[s.length()]; // s의 길이만큼 int 배열 생성
 
-        for (int i=0; i<s.length(); i++) {
-            if (s.indexOf(s.charAt(i))== i) {
-                arr[i] = -1;
-                System.out.println(arr[i]);
+        for (int i=0; i<s.length(); i++) { // s의 길이만큼 반복
+            if (s.indexOf(s.charAt(i))== i) { // indexOf로 s.charAt으로 찾은 알파벳의 위치가 i와 대조
+                arr[i] = -1; // 처음 들어온 값이라면 arr[i]에 값 저장.
             }else {
-                arr[i] = i - s.indexOf(s.charAt(i));
+                arr[i] = i - s.indexOf(s.charAt(i)); // 중복된 값이 아니라면 arr[i]에 i에 찾아온 인덱스 값을 빼기.
             }
         }
-        return arr;
+        return arr; // 리턴
     }
 }
