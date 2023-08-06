@@ -24,15 +24,11 @@ public class Hojoong {
         //for문을 돌며 commands[i] 에 있는 배열의 i,j,k를 뽑아서 숫자를 구함
         for (int i = 0; i < commands.length; i++) {
 
-            //commands[i]번째의 배열을 따로 뽑아서, array와 같이 getNumber 메서드에 보내 로직 수행
-            int[] command = commands[i];
-            int number = getNumber(array, command);
-
-            answer[i] = number;
+            //commands[i]번째의 배열을 따로 뽑아서, array와 같이 getNumber 메서드에 보내 로직 수행 후 저장할 숫자 리턴
+            answer[i] = getNumber(array, commands[i]);
         }
 
         return answer;
-
     }
 
     public static Integer getNumber(int[] array, int[] command) {
