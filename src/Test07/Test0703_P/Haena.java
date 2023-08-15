@@ -13,14 +13,14 @@ public class Haena {
 
 class SolutionHn {
 	public int solution(int n) {
-		// 뒤집어진 3진법 구하기
+		// 뒤집어진 3진수 구하기
 		List list = new ArrayList<>();
 		while (n != 0) {
 			list.add(n % 3);
 			n /= 3;
 		}
 
-		// 뒤집어진 3진법을 순서대로 돌면서 답을 구하기
+		// 뒤집어진 3진수를 순서대로 돌면서 답을 구하기
 		int answer = 0;
 		for (int i = 0, j = list.size() - 1; i < list.size(); i++, j--) {
 			answer += (int) Math.pow(3, j) * (int) list.get(i);
