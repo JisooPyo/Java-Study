@@ -7,9 +7,8 @@ import java.util.Arrays;
 public class Haena3 {
     public int solution(int[] nums) {
         // stream -> distinct를 사용해 중복값을 제거한 후 개수를 센다.
-        int count = (int) Arrays.stream(nums).distinct().count();
         // 중복값 제거한 개수와 최대값 중 작은 수를 return 한다.
-        return Math.min(count,nums.length / 2);
+        return (int) Math.min(Arrays.stream(nums).distinct().count(),nums.length / 2);
     }
 
 
