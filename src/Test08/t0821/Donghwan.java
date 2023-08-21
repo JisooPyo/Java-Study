@@ -24,15 +24,15 @@ public class Donghwan {
     }
 
     public String first(String new_id) {
-        return new_id.toLowerCase();
+        return new_id.toLowerCase(); //대문자를 소문자로 변경해주는 toLowerCase(); 사용
     }
 
     public String second(String new_id) {
-        return new_id.replaceAll("[^a-z0-9\\-_.]", "");
+        return new_id.replaceAll("[^a-z0-9\\-_.]", ""); //new_id.replaceAll("[^a-z0-9\\-_.]", ""); 정규표현식을 사용해 az , 09 , - , _ , . 을 제거
     }
 
     public String third(String new_id) {
-        return new_id.replaceAll("\\.+", ".");
+        return new_id.replaceAll("\\.+", "."); //2번 이상 연속되는 .이 있으면 .로 변경. 마찬가지로 new_id.replaceAll("\.+", "."); 을 사용해 변경
     }
 
     public String fourth(String new_id) {
@@ -42,14 +42,14 @@ public class Donghwan {
     }
 
     public String fifth(String new_id) {
-        if (new_id.length() == 0) {
+        if (new_id.length() == 0) { //if (new_id.length() == 0) 조건문을 통해 길이가 0이라면 a를 반환 아니라면 기존 문자열을 반환
             return "a";
         }
         return new_id;
     }
 
     public String sixth(String new_id) {
-        if (new_id.length() >= 16) {
+        if (new_id.length() >= 16) { // 조건문을 통해 16 이하가 되는 문자열은 substring을 사용해 제거하고 끝 부분의 마침표를 제거
             new_id = new_id.substring(0, 15);
             return new_id.replaceAll("\\.$", "");  // 끝 부분의 마침표 제거
         }
@@ -57,7 +57,7 @@ public class Donghwan {
     }
 
     public String seventh(String new_id) {
-        while (new_id.length() < 3) {
+        while (new_id.length() < 3) { //while문을 사용해 마지막문자를 charAt으로 뽑고 난 후 반복
             new_id += new_id.charAt(new_id.length() - 1);
         }
         return new_id;
