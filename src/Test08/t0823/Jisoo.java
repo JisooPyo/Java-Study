@@ -10,7 +10,6 @@ public class Jisoo {
 	}
 
 	public String solution(int a, int b) {
-		String[] days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
 		Calendar date1 = Calendar.getInstance();
 		Calendar date2 = Calendar.getInstance();
 		date1.set(2016, 0, 1);
