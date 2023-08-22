@@ -1,3 +1,5 @@
+package Test08.t0823;
+
 import java.time.LocalDate;
 
 public class Hojoong {
@@ -30,5 +32,5 @@ public class Hojoong {
 //    테스트 12 〉	통과 (0.98ms, 74.4MB)
 //    테스트 13 〉	통과 (1.07ms, 77.5MB)
 //    테스트 14 〉	통과 (1.21ms, 74.6MB)
-}
 
+}
