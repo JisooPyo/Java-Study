@@ -2,7 +2,9 @@
 package Test08.t0825;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Jisoo2 {
 	public static void main(String[] args) {
@@ -22,12 +24,20 @@ public class Jisoo2 {
 
 	public int[] solution(int k, int[] score) {
 		int[] answer = new int[score.length];
+
+		// 명예의 전당
 		PriorityQueue<Integer> rank = new PriorityQueue<>();
+
 		for (int i = 0; i < score.length; i++) {
+			// 명예의 전당에 점수를 추가한다.
 			rank.add(score[i]);
+
+			// 명예의 전당이 정해진 사이즈를 넘어서면 가장 작은 점수를 제거한다.
 			if (rank.size() > k) {
 				rank.poll();
 			}
+
+			// answer 배열에는 명예의 전당에서 가장 낮은 점수를 넣는다.
 			answer[i] = rank.peek();
 		}
 		return answer;

@@ -24,13 +24,23 @@ public class Jisoo {
 
 	public int[] solution(int k, int[] score) {
 		int[] answer = new int[score.length];
+
+		// 명예의 전당
 		List<Integer> rank = new ArrayList<>();
+
 		for (int i = 0; i < score.length; i++) {
+			// 명예의 전당에 점수를 추가한다.
 			rank.add(score[i]);
+
+			// 명예의 전당을 정렬한다.
 			Collections.sort(rank);
+
+			// 명예의 전당의 사이즈가 k를 넘으면 가장 작은 값을 제거한다.
 			if (rank.size() > k) {
 				rank.remove(0);
 			}
+
+			// 명예의 전당에서 가장 낮은 점수를 answer 배열에 넣는다.
 			answer[i]= rank.get(0);
 		}
 
