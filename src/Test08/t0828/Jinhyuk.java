@@ -26,7 +26,7 @@ public class Jinhyuk {
     cards1과 cards2에는 서로 다른 단어만 존재합니다.
 */
         List<String> test = new ArrayList<>();
-        List<String> cards1List = new ArrayList<>(Arrays.asList(cards1)); //
+        List<String> cards1List = new ArrayList<>(Arrays.asList(cards1)); //Arrays.asList()를 사용하여 배열을 리스트로 변환
         List<String> cards2List = new ArrayList<>(Arrays.asList(cards2));
 
         for (int i = 0; i < goal.length; i++) {
