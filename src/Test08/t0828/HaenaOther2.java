@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 // 프로그래머스 lv.1 카드 뭉치
-public class HaenaOther {
+public class HaenaOther2 {
     public String solution(String[] cards1, String[] cards2, String[] goal) {
         List<String> card1Ary = new ArrayList<>(Arrays.asList(cards1));
         List<String> card2Ary = new ArrayList<>(Arrays.asList(cards2));
@@ -53,7 +53,7 @@ public class HaenaOther {
  */
 
     public static void main(String[] args) {
-        HaenaOther sol = new HaenaOther();
+        HaenaOther2 sol = new HaenaOther2();
         System.out.println(sol.solution(new String[]{"i", "drink", "water"}, new String[]{"want", "to"}, new String[]{"i", "want", "to", "drink", "water"}));
         System.out.println(sol.solution(new String[]{"i", "water", "drink"}, new String[]{"want", "to"}, new String[]{"i", "want", "to", "drink", "water"}));
     }
